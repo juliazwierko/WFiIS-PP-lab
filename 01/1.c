@@ -1,58 +1,44 @@
 #include <stdio.h>
+#include <stdlib.h>   //malloc
 #include <string.h>
-#include <stdlib.h>
-#include <time.h> 
-#define N 10
+#include <ctype.h>
+char* zamiana(char *tab, int n); 
 
-int main()
+int main(void)
 {
-    char tab[] = "JakiS Tekst Od julkI";
-    for (int i=0; i<(sizeof(tab)/sizeof(char)); i++)
-    {
-        if (*(tab+i)< 91 && *(tab+i)>64)
-        printf("%c", *(tab+i));
-    }
+    char tab[] = "Jakis Tekst od JullKII";
+    int n = strlen(tab); //ilosc liter, 
+    printf("Tablica przed edytowaniem:\n%s\n\n", tab);
 
-    for (int i=0; i<(sizeof(tab)/sizeof(char)); i++)
-    {
-        if (*(tab+i)< 123 && *(tab+i)>96)
-        printf("%c", *(tab+i));
-    }
-
+    char *tab2 = zamiana(tab, n);
+    printf("Tablica po edytowaniu:\n%s \n", tab2);
+    free(tab2);
+    tab2 = NULL;
     return 0;
 }
 
-/*
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-char funkcja (char *tab)
-{
-    int i = 0;
-    for (i; i<strlen(tab); i++)
-    {
-        if ((*(tab+i)>='A')&(*(tab+i)<='Z'))
-            printf("%s",tab + i);
-    }
-
-    for (i; i<strlen(tab); i++)
-    {
-        if ((*(tab+i)>='a')&(*(tab+i)<='z'))
-            printf("%s",tab + i);
-    }
+char* zamiana(char *tab, int n){
+    char *arr = malloc(n * sizeof(char));
+    int count = 0;
+    int j=0;
     
-    return tab;
+    if(arr)
+    {
+        for(int i=0; i<n; i++)
+        {
+            if (isupper(tab[i]))
+            {
+                arr[j++] = tab[i];
+                count++;
+            }
+        }
+
+        for(int i=0; i<n; i++)
+        {
+            if (islower(tab[i]))
+                arr[j++] = tab[i];
+        }
+    }
+  
+    return arr;
 }
-
-int main()
-{
-    char tab[] = "JakiS TeksTTTttt";
-    printf("%s\n", tab);
-
-    printf("%s", funkcja(&tab));
-    
-
-    return 0;
-}
-*/
