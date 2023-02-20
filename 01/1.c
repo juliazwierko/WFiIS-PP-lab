@@ -19,7 +19,6 @@ int main(void)
 
 char* zamiana(char *tab, int n){
     char *arr = malloc(n * sizeof(char));
-    int count = 0;
     int j=0;
     
     if(arr)
@@ -27,10 +26,7 @@ char* zamiana(char *tab, int n){
         for(int i=0; i<n; i++)
         {
             if (isupper(tab[i]))
-            {
                 arr[j++] = tab[i];
-                count++;
-            }
         }
 
         for(int i=0; i<n; i++)
