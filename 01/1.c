@@ -26,13 +26,17 @@ char* zamiana(char *tab, int n){
         for(int i=0; i<n; i++)
         {
             if (isupper(tab[i]))
+            {
                 arr[j++] = tab[i];
+            }
         }
 
         for(int i=0; i<n; i++)
         {
             if (islower(tab[i]))
+            {
                 arr[j++] = tab[i];
+            }
         }
     }
   
