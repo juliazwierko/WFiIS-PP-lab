@@ -40,7 +40,6 @@ int main(void)
             default:
                 printf("Wpisana opcja jest zla");
                 return 0; //konczymy program
-                break;
         }
         show_menu();
     }
