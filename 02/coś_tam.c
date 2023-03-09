@@ -3,7 +3,7 @@
 #define SIZE 4
 
 void swap(int* a, int* b);
-int* bubble_sort(int* a, int* b, int* c, int* d);
+void bubble_sort(int* a, int* b, int* c, int* d);
 
 int main(int argc, char const *argv[])
 {
@@ -19,36 +19,33 @@ int main(int argc, char const *argv[])
 
     //  1 step
     int tab[] = {a, b, c, d}; // 10, 2, 5, 1 
-    printf("Liczny przed sortowaniem");
-    for(int i=0; i<(SIZE+1); i++){
-        printf("%d", tab[i]);
+    printf("Liczny przed sortowaniem\n");
+    for(int i=0; i<SIZE; i++){
+        printf("%d ", tab[i]);
     }
-
-    swap(a,b);
-    printf("a = %d, b = %d\n", a,b);
+    printf("\n");
 
     //  2 step
-    printf("Liczby po sortowaniu");
-    int nowa_tab[SIZE];
-    nowa_tab[0] = sortowanie(&a, &b, &c, &d);
-    for(int i=0; i<(SIZE+1); i++){
-        printf("%d", nowa_tab[i]);
-    }
+    printf("Liczby po sortowaniu\n");
+    bubble_sort(&a, &b, &c, &d);
 
     return 0;
 }
 
-int* bubble_sort(int* a, int* b, int* c, int* d){
+void bubble_sort(int* a, int* b, int* c, int* d){
     int tablica[SIZE] = {*a, *b, *c, *d};
 
     for(int i=0; i<SIZE-1; i++){
         for(int j=SIZE; j>i+1; j--){
             if(tablica[j-1]>tablica[j]){
-                swap(tablica[j-1],tablica[j]);
+                swap(&tablica[j-1],&tablica[j]);
             }
         }
     }
-    return tablica;
+    for(int k=0; k<SIZE; k++){
+        printf("%d ", tablica[k]);
+    }
+    return;
 }
 
 void swap(int* a, int* b){
