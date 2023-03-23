@@ -1,43 +1,43 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <math.h>
 
 double *my_alloc(int i_min, int i_max);
 void my_free(double **my_tab, int i_min);
 
 int main() {
-    double arr[] = {0.};
-    // tablica o indeksach od -2 do 4
+    double *arr = my_alloc(-5, 2);  //tablica o indeksach od -2 do 4
+    printf("%f\n", arr[-5]);
+    printf("%f\n", arr[2]);
+    my_free(&arr, -5);
 
-
-    printf("\n");
+    double *arr2 = my_alloc(-2, 4);
+    int size = 7;
+    for(int i = 0; i < size; i++){
+        *(arr + i) = 8.8;
+        printf("%f, ", *(arr+i));
+    }
+    
     return 0;
 }
 
 double *my_alloc(int i_min, int i_max){
-    //////////////////////////////////////////////////////////
-    int ilosc_elementow = (i_max - i_min);
-    int *a; 
-    a = (int*)malloc(ilosc_elementow * sizeof(double));
 
-    
-    for (int i = 0; i < ilosc_elementow; i++)
-    {
-        a[i] = 8.8;
-        printf("arr[%d] = %lf, adres = %p\n", i, a[i], &a[i]);
+    int ilosc_elementow = (i_max - i_min +1);
+    double  *a; 
+    a = (double*)malloc(ilosc_elementow * sizeof(double));
+
+    for(int i = 0; i < abs(i_min); i++){
+        a++;
     }
-    printf("\n\n");
-    //////////////////////////////////////////////////////////
-    
-    for (int i = 1; i < ilosc_elementow - 1; i++){
-        //!!!
-        a[i] = d_array_set_random(,);
-        printf("arr[%d] = %lf, adres = %p\n", i, a[i], &a[i]);
-    }
-    free(a);
-    return 0;
+    return a;
 }
 
 void my_free(double **my_tab, int i_min){
+    for(int i = 0; i < abs(i_min); i++){
+        (*my_tab)--;
+    }
+    free(*my_tab);
     
 }
