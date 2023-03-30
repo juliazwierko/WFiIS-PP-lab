@@ -1,25 +1,25 @@
-/*
-Proszę uzupełnić poniższy kod tak, żeby prawidłowo wypełniał wiersze 
-dwuwymiarowej tablicy oraz wypisywał je. Kod można edytować tylko w 
-zaznaczonych miejscach.
-*/
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <time.h> 
+#include "../my_functions/functions_0d.h" 
+#include "../my_functions/functions_1d.h" 
 
-int main(void)
-{
-    srand(time(NULL));
+#define ROWS 7
+#define COLS 5
+
+int main(void) { 
+    srand(time(NULL)); 
     double array[ROWS][COLS];
-    for (double *p =            ;            ;            )
-    {
-        d_array_set_random(           ,            ,
+   
+    for (double *p = *array; p < *(array + ROWS); p += COLS) {
+        d_array_set_random(p, p + COLS,
                            ((double(*)[COLS])p - array) * 10,
                            (((double(*)[COLS])p - array) + 1) * 10);
     }
 
-    for (double(*row)[COLS] =            ;            ;            )
-    {
-        d_array_print(           ,            ,
-                      (const char[]){'w', '=', row - array + '0', '\0'});
-    }
+    for (double(*row)[COLS] = array; row < array + ROWS; row++) { 
+        d_array_print(*row, *row + COLS, (const char[]){'w', '=', row - array + '0', '\0'}); 
+    } 
 
-    return 0;
+    return 0; 
 }
