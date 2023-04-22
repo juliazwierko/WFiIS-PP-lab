@@ -6,11 +6,10 @@
 #include <ctype.h>
 
 /*
-(30 pkt.) Poniższe zadanie należy wykonać z tablicą zadeklarowaną w main jako:
+Poniższe zadanie należy wykonać z tablicą zadeklarowaną w main jako:
 double **triangle;
 Napisz program z tablicą dwuwymiarową o nieregularnym (trójkątnym) kształcie:
-Zaalokuj tablicę dwuwymiarową, która będzie miała tyle wierszy, ile poda użytkownik w pierwszym parametrze wywołania programu: 
-argv[1]. Każdy z wierszy ma mieć coraz więcej elementów, tzn. wiersz o indeksie 0 ma 1 element, wiersz o indeksie 1 ma 2 elementy, itd.
+Zaalokuj tablicę dwuwymiarową, która będzie miała tyle wierszy, ile poda użytkownik w pierwszym parametrze wywołania programu: argv[1]. Każdy z wierszy ma mieć coraz więcej elementów, tzn. wiersz o indeksie 0 ma 1 element, wiersz o indeksie 1 ma 2 elementy, itd.
 Wypełnij tę tablicę w dowolny sposób (np. przy pomocy swojej funkcji d_array_set_random).
 Wypisz tablicę.
 Zwolnij pamięć.
