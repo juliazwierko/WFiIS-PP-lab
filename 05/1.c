@@ -1,3 +1,16 @@
+/*
+ Napisz funkcje zgodne z prototypami:
+(30 pkt.) char *read_line(void);
+która pobierze od użytkownika cały łańcuch aż do pierwszego znaku nowej linii i zwróci wskaźnik do tego łańcucha. 
+Wskazówka: tablica przechowująca łańcuch musi być zaalokowana dynamicznie, a w razie potrzeby rozszerzana. Wczytujemy pojedyncze znaki, żeby móc znaleźć znak nowej linii '\n'.
+(7.5 pkt.) char *trim(char *string);
+Funkcja realokuje dynamicznie pamięć dla tablicy wskazywanej przez wejściowy parametr – tak, aby zwolnić pamięć po końcowych elementach tablicy, znajdujących się za znakiem końca łańcucha. 
+(7.5 pkt.) void safe_free(void **my_tab);
+Funkcja bezpiecznie zwalnia pamięć po jednowymiarowej tablicy zaalokowanej dynamicznie. Bezpiecznie == bez "wiszących wskaźników" (patrz końcówka wykładu nr 3) oraz nie próbuje zwalniać pamięci dla pustego wskaźnika – analogicznie do podobnej funkcji z zeszłego tygodnia.
+Następnie przetestuj te funkcje w programie, żeby się przekonać o poprawności obsługi pamięci i wczytywania (korzystamy z valgrinda).
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
