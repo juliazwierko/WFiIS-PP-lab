@@ -2,18 +2,27 @@
 // Uzupełnienie deklaracji wskaźnika, wywołania printf'a i napisane co się wypisze.
 
 #include <stdio.h>
+#include <stdlib.h>
 
-int main(void) {
-  typedef struct {
-    int x;
-    int y;
-  } Point;
+int main(){
+    typedef struct{
+        int x;
+        int y;
+    } Pepa_Pig;
+    Pepa_Pig a = {.x = 12, .y = 10};
+    Pepa_Pig *pa = &a;
+    Pepa_Pig **ppa = &pa;
 
-  Point p = {.y = 2};
-  Point* ptr1 = &p; // uzupelnic
-  Point** ptr2 = &ptr1; // uzupelnic
-
-  printf("%d, %d\n", (*ptr2)->x, (**ptr2).y); // uzupelnic + co sie wypisze
-
-  return 0;
+    printf("%d %d\n", (*ppa)->x, (*ppa)->y);
+    printf("%d %d\n", (**ppa).x, (**ppa).y); 
+    printf("\n");
+    printf("%d %d\n", (pa)->x, (pa)->y);
+    printf("%d %d\n", (*pa).x, (*pa).y); 
+    return 0;
 }
+//OutPut
+// 12 10
+// 12 10
+
+// 12 10
+// 12 10
