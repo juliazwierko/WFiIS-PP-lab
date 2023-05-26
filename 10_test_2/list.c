@@ -7,7 +7,10 @@ void initialize_list(SortedList *list)
 
 void add(SortedList *list, void *data, CMP cmp)
 {
-    /* TODO */
+    Node *new_node = malloc(sizeof(Node));
+    if(new_node == NULL)
+        return;
+    new_node->data = data;
 }
 
 void print_list(const SortedList *list, PRINT print)
