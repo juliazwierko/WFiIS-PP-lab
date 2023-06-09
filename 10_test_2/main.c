@@ -25,8 +25,44 @@ int main(void)
     SortedList list;
     initialize_list(&list);
 
-    /* TODO */
+    add(&list, &student1, students_cmp); // Dodajemy student1 do listy.
+    add(&list, &student2, students_cmp); // Dodajemy student2 do listy.
+    add(&list, &student3, students_cmp); // Dodajemy student3 do listy.
 
+    Student student4 = student1;
+    strcpy(student4.address, "ul. Reymonta 17, Krak"); // Adres ucięty w stosunku do oryginalnego student1.
+    add(&list, &student4, students_cmp);               // Dodajemy student4 do listy.
+
+    print_list(&list, print_student); // Wypisywanie: czworo studentow posortowanych alfabetycznie.
+
+    Student to_found = student1;
+    Student *found = get_data(&list, students_cmp, &to_found); // Szukamy obiektu identycznego ze student1
+    if (found != NULL)
+    {
+        printf("\nZnaleziono:\n");
+        print_student(found);
+    }
+    else
+        printf("\nNie znaleziono.\n");
+    printf("\n");
+
+    to_found.age++; // Zwiększony wiek - takiego studenta nie ma na liście.
+    found = get_data(&list, students_cmp, &to_found);
+    if (found != NULL)
+    {
+        printf("\nZnaleziono:\n");
+        print_student(found);
+    }
+    else
+        printf("\nNie znaleziono.\n");
+    printf("\n");
+
+    remove_data(&list, students_cmp, &student4); // Usuwanie studenta.
+    remove_data(&list, students_cmp, &student4); // Próba powtórnego usunięcia: brak zmian na liście, bo już nie ma takiego obiektu.
+    print_list(&list, print_student);            // Wypisanie listy po usunięciu jednego studenta.
+
+    remove_all(&list);                // Usuwamy wszystko.
+    print_list(&list, print_student); // Wypisanie pustej listy.
     return 0;
 }
 
