@@ -4,7 +4,6 @@
 #include <ctype.h>
 #include <string.h>
 #include <assert.h>
-
 #include "student.h"
 #include "list.h"
 
