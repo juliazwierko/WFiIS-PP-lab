@@ -1,5 +1,4 @@
 #include "student.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -139,10 +138,7 @@ int main(void){
 //OutPut:
 // ->Duza losowa litera: G
 // ->Mala losowa litera: w
-
 // ->Losowe imię/nazwisko: G
-
 // ->Random email: DBMPLANLLQWDQHSVJEOGJPB@@student.agh.edu.pl
-
 // Losowy student:
 // Dane studenta: Clri Uscrfgkwvcbigrjiyikyayizikwgaythjceorkwurglbco, wiek: 24, adres: F@@student.agh.edu.pl
