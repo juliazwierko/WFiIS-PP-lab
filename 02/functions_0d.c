@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h> 
-#include "functions_0d.h".
+#include "functions_0d.h"
 
 int i_rand(int min, int max){
     return rand() % (max - min + 1) + min; 
